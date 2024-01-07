@@ -1,35 +1,31 @@
-// import { useState } from 'react'
-// import reactLogo from './assets/react.svg'
-// import viteLogo from '/vite.svg'
-import './App.css'
+import { Route, Routes } from 'react-router';
+import { NavLink } from 'react-router-dom';
+import './App.css';
+import Menu from './components/Menu';
+import HomePage from './components/HomePage';
+import DriftPage from './components/DriftPage';
+import TimeAttackPage from './components/TimeAttackPage';
+import ForzaPage from './components/ForzaPage';
 
 function App() {
-  // const [count, setCount] = useState(0)
-  
 
   return (
-    <>
-      {/* <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+      <div>
+        <Menu>
+          <NavLink to="/" className="menu__item">Главная</NavLink>
+          <NavLink to="/drift" className="menu__item">Дрифт-такси</NavLink>
+          <NavLink to="/timeattack" className="menu__item">Time Attack</NavLink>
+          <NavLink to="/forza" className="menu__item">Forza Karting</NavLink>
+        </Menu>
+        <div className="page">
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/drift" element={<DriftPage />} />
+            <Route path="/timeattack" element={<TimeAttackPage />} />
+            <Route path="/forza" element={<ForzaPage />} />
+          </Routes>
+        </div>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p> */}
-    </>
   )
 }
 
